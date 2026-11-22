@@ -1,18 +1,29 @@
 # Airscan
 
+[![Build and test](https://github.com/crazyuploader/airscan/actions/workflows/build-and-test.yml/badge.svg?branch=main)](https://github.com/crazyuploader/airscan/actions/workflows/build-and-test.yml)
+[![Latest release](https://img.shields.io/github/v/release/crazyuploader/airscan)](https://github.com/crazyuploader/airscan/releases/latest)
+[![License: Apache-2.0](https://img.shields.io/github/license/crazyuploader/airscan)](LICENSE)
+
 An Android app that shows Wi-Fi and mobile signal on your phone. It is free, has no ads, no account and no tracking, and needs no Google services.
 
 Airscan is a personal project and is not on the Play Store. It is not affiliated with any other signal app.
 
-## Status
+## Features
 
-The first milestone is built. It has five tabs:
+Airscan has five tabs:
 
 - Mobile: live signal for each SIM. It shows technology, RSRP, RSRQ, SINR, RSSI, cell identity, band and 5G mode (SA or NSA), plus neighbour cells.
 - Wi-Fi: the connected network, nearby access points with scan age, and a channel graph for 2.4, 5 and 6 GHz.
 - Meter: a big gauge and a two-minute graph for walking around. Pick Wi-Fi or a SIM.
 - History: a signal graph, and recording to CSV and GPX files that you can share.
 - Access: what Android lets the app read, and how to allow more.
+
+## Limits
+
+- Android does not give normal apps carrier aggregation, MIMO layers or QAM. Airscan does not show them.
+- Some modems report no CQI or timing advance. Those fields show "n/a".
+- Neighbour cells cannot be tied to one SIM.
+- It needs precise location. Android hides cell and Wi-Fi details without it. Airscan never sends data off the phone.
 
 ## Install
 
@@ -22,7 +33,7 @@ Download the APK from [Releases](https://github.com/crazyuploader/airscan/releas
 adb install --user 0 airscan-<version>.apk
 ```
 
-It needs Android 12 (API 31) or newer. It asks for precise location and phone state. Android hides cell and Wi-Fi details from apps without them.
+It needs Android 12 (API 31) or newer. It asks for precise location and phone state.
 
 ## Build
 
