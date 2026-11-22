@@ -1,0 +1,19 @@
+.gradle/
+.kotlin/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# Release signing: never commit the key or its passwords.
+keystore.properties
+*.jks
+*.keystore
+
+# Local debug key made by tools/docker-build.sh, so debug APKs update in place.
+.debug-keystore/
+
+# Scratch files from builds on another computer.
+dist/
+build.log

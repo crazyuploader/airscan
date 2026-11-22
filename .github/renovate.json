@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigestsToSemver",
+    ":semanticCommitsDisabled"
+  ],
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "description": "One PR for all minor and patch updates",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin"
+      ],
+      "groupName": "minor and patch updates"
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "Versions in libs.versions.toml marked with a '# renovate:' comment",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)gradle/libs\\.versions\\.toml$/"
+      ],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n[\\w-]+ = \"(?<currentValue>[^\"]+)\""
+      ]
+    }
+  ]
+}
